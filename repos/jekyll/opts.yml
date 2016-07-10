@@ -15,6 +15,10 @@ gems:
     - RedCloth
     - kramdown
     - jemoji
+    - git
+    - hawkins
+    - octopress-minify-html
+    - nokogiri
   group:
     relative: &relative
       - jekyll-redirect-from
