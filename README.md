@@ -11,6 +11,8 @@ This project is a fork that adds support for `jekyll liveserve` and a few extra 
 
 ## Running
 
+[![](https://images.microbadger.com/badges/image/spyder/jekyll.svg)](https://microbadger.com/images/spyder/jekyll)
+
 `docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 127.0.0.1:4000:4000 -p 127.0.0.1:35729:35729 spyder/jekyll bundle exec jekyll liveserve`
 
 Add the following to your shell profile and you can run `jekyll liveserve` or `jekyll build` etc to run via docker:
@@ -31,6 +33,8 @@ Direct instructions:
 > You can build our images or any specific tag of an image with `bundle exec docker-template build` or `bundle exec docker-template build repo:tag`, yes it's that simple to build our images even if it looks complicated it's not.
 
 If you're like me and don't want to install the ruby dependencies, use my docker image to build the jekyll images. Run this command:
+
+[![](https://images.microbadger.com/badges/image/spyder/jekyllbuild.svg)](https://microbadger.com/images/spyder/jekyllbuild)
 
 `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/build spyder/jekyllbuild bundle exec docker-template build jekyll:latest`
 
