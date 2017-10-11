@@ -13,12 +13,12 @@ This project is a fork that adds support for `jekyll liveserve` and a few extra 
 
 [![](https://images.microbadger.com/badges/image/spyder/jekyll.svg)](https://microbadger.com/images/spyder/jekyll)
 
-`docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 127.0.0.1:4000:4000 -p 127.0.0.1:35729:35729 spyder/jekyll bundle exec jekyll liveserve`
+`docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 0.0.0.0:4000:4000 -p 0.0.0.0:35729:35729 spyder/jekyll jekyll liveserve`
 
 Add the following to your shell profile and you can run `jekyll liveserve` or `jekyll build` etc to run via docker:
 
 ```
-alias jekyll='rm -f Gemfile.lock && docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 127.0.0.1:4000:4000 -p 127.0.0.1:35729:35729 spyder/jekyll bundle exec jekyll'
+alias jekyll='rm -f Gemfile.lock && docker run --rm --label=jekyll --volume=$(pwd):/srv/jekyll -it -p 0.0.0.0:4000:4000 -p 0.0.0.0:35729:35729 spyder/jekyll jekyll'
 ```
 
 ## Common issues
@@ -36,7 +36,7 @@ If you're like me and don't want to install the ruby dependencies, use my docker
 
 [![](https://images.microbadger.com/badges/image/spyder/jekyllbuild.svg)](https://microbadger.com/images/spyder/jekyllbuild)
 
-`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/build spyder/jekyllbuild bundle exec docker-template build jekyll:latest`
+`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/build spyder/jekyllbuild bundle exec docker-template build  --no-push jekyll:latest`
 
 The docker socket redirect is linux/mac specific, I'm not sure how to do that on windows. Google may be able to tell you.
 
