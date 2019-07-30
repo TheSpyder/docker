@@ -12,6 +12,8 @@ gems:
     - jekyll-paginate
     - jekyll-compose
     - jekyll-assets
+    - jekyll-feed
+    - jekyll-sitemap
     - RedCloth
     - kramdown
     - jemoji
@@ -19,6 +21,8 @@ gems:
     - hawkins
     - octopress-minify-html
     - nokogiri
+    - minima
+    - tzinfo-data
   group:
     relative: &relative
       - jekyll-redirect-from

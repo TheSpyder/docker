@@ -1,5 +1,5 @@
 # A docker image to build the jekyll docker image.
-FROM ruby:alpine3.6
+FROM ruby:alpine3.7
 MAINTAINER Andrew Herron <thespyder@programmer.net>
 ENV \
   LANGUAGE=en_US \

@@ -36,12 +36,14 @@ If you're like me and don't want to install the ruby dependencies, use my docker
 
 [![](https://images.microbadger.com/badges/image/spyder/jekyllbuild.svg)](https://microbadger.com/images/spyder/jekyllbuild)
 
-`docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/build spyder/jekyllbuild bundle exec docker-template build  --no-push jekyll:latest`
+`rm Gemfile.lock && docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/build spyder/jekyllbuild bundle exec docker-template build  --no-push jekyll:latest`
 
 The docker socket redirect is linux/mac specific, I'm not sure how to do that on windows. Google may be able to tell you.
 
 Everything after `build` is the same as in the parent repo, so you can change or remove the `jekyll:latest` tag.
 
-### Note to self
+### Notes to self
 
 After building the image, use `docker tag jekyll/jekyll spyder/jekyll` to create my alias.
+
+When rebuilding the spyder/jekyllbuild image, use `docker build -t spyder/jekyllbuild .`
